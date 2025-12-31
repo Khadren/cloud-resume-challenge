@@ -1,0 +1,186 @@
+:root{
+  --bg:#0b0f17;
+  --panel:#0f1624;
+  --panel2:#0c1320;
+  --text:#e7ecf5;
+  --muted:#a9b4c7;
+  --line:rgba(255,255,255,.08);
+  --accent:#6aa7ff;
+  --radius:16px;
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: radial-gradient(1200px 700px at 20% -10%, rgba(106,167,255,.18), transparent 60%),
+              radial-gradient(900px 600px at 90% 10%, rgba(141,255,198,.10), transparent 55%),
+              var(--bg);
+  color:var(--text);
+}
+
+a{ color:inherit; text-decoration:none; }
+a:hover{ color:var(--accent); }
+
+.page{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 24px;
+}
+
+.header{
+  display:none;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(11,15,23,.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+  margin: -24px -24px 12px;
+  padding: 12px 16px;
+}
+.headerInner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.brand{ font-weight: 700; letter-spacing:.2px; }
+.hamburger{
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 8px 10px;
+  cursor:pointer;
+}
+.mobileNav{
+  margin-top: 10px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.mobileNavLink{
+  border: 1px solid var(--line);
+  background: var(--panel2);
+  padding: 8px 10px;
+  border-radius: 999px;
+}
+
+.sidebarWrap{ position: relative; }
+.sidebar{
+  position: sticky;
+  top: 24px;
+  background: rgba(15,22,36,.75);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px;
+  backdrop-filter: blur(10px);
+}
+
+.profile{ padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+.avatar{
+  width: 92px; height: 92px; border-radius: 999px;
+  border: 1px solid var(--line);
+  display:block;
+  object-fit: cover;
+}
+.name{ margin: 12px 0 4px; font-size: 22px; }
+.role{ margin: 0 0 10px; color: var(--muted); }
+
+.pillRow{ display:flex; flex-wrap:wrap; gap:8px; margin: 12px 0; }
+.pill{
+  font-size: 12px;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  background: rgba(12,19,32,.65);
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+.socialRow{ display:flex; gap:12px; margin-top: 10px; }
+.social{ font-size: 14px; color: var(--muted); }
+
+.sideNav{ padding-top: 14px; display:flex; flex-direction:column; gap:8px; }
+.sideLink{
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  color: var(--muted);
+}
+.sideLink:hover{
+  border-color: var(--line);
+  background: rgba(12,19,32,.55);
+  color: var(--text);
+}
+
+.content{
+  min-width: 0;
+}
+
+.section{
+  background: rgba(15,22,36,.55);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px;
+  margin-bottom: 16px;
+  backdrop-filter: blur(10px);
+}
+.sectionTitle{ margin: 0 0 10px; font-size: 18px; }
+.sectionBody{ color: var(--text); }
+.subtle{ color: var(--muted); }
+
+.ctaRow{ display:flex; gap:10px; margin-top: 14px; }
+.btn{
+  display:inline-block;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: rgba(12,19,32,.65);
+}
+.btnGhost{ background: transparent; }
+
+.grid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.card{
+  border: 1px solid var(--line);
+  background: rgba(12,19,32,.55);
+  border-radius: 14px;
+  padding: 14px;
+}
+.cardTitle{ margin:0 0 6px; }
+.cardDesc{ margin:0 0 10px; color: var(--muted); }
+.tagRow{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom: 10px; }
+.tag{
+  font-size: 12px;
+  border: 1px solid var(--line);
+  padding: 4px 8px;
+  border-radius: 999px;
+  color: var(--muted);
+}
+.cardLinks{ display:flex; gap:12px; font-size: 14px; }
+
+.list{ margin:0; padding-left: 18px; }
+.meta{ color: var(--muted); }
+
+.footer{
+  color: var(--muted);
+  text-align: center;
+  padding: 12px 0 28px;
+}
+
+/* Responsive: sidebar becomes header */
+@media (max-width: 900px){
+  .page{
+    grid-template-columns: 1fr;
+  }
+  .sidebarWrap{ display:none; }
+  .header{ display:block; }
+  .grid{ grid-template-columns: 1fr; }
+}
