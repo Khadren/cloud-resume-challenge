@@ -3,3 +3,5 @@
 ## Resume Format Considerations
 
 Utilize my current resume format, which was based on the Harvard Resume format
+
+![App Screenshot](./docs/current-resume-format.png)
